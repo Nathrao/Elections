@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -20,64 +21,9 @@
       <link href="./resources/css/responsive.css" rel="stylesheet">
       <link href="./resources/css/jquery-ui.css" rel="stylesheet">
       <link href="./resources/css/jquery.fancybox.css" rel="stylesheet">
-      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-      <style>
-         .modal-header, h4, .close {
-         background-color: #5cb85c;
-         color:white !important;
-         text-align: center;
-         font-size: 30px;
-         }
-         .modal-footer {
-         background-color: #f9f9f9;
-         }
-      </style>
    </head>
    <body>
-
-
-      <!-- popup registration form start  -->
-      <!-- Modal -->
- 
-      <div class="modal fade" id="modalLRForm" role="dialog">
-         <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-               <div class="modal-header" style="padding:35px 50px;">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-               </div>
-               <div class="modal-body" style="padding:40px 50px;">
-                  <form role="form">
-                     <div class="form-group">
-                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" class="form-control" id="lusrname" placeholder="Enter email">
-                     </div>
-                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                        <input type="password" class="form-control" id="lpsw" placeholder="Enter password">
-                     </div>
-                     <div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                     </div>
-                     <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-                  </form>
-               </div>
-               <div class="modal-footer">
-                  <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                  Forgot <a href="#">Password?</a>
-                  <p>Not a member?<a href="" class="btn btn-primary" data-toggle="modal" data-target="Registration" style="line-height:29px">Sign Up</a>
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <div class="modal fade" id="Registration" role="dialog">
+   <div class="modal fade" id="Registration" role="dialog">
          <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -86,28 +32,28 @@
                   <h4><span class="glyphicon glyphicon-lock"></span> Register</h4>
                </div>
                <div class="modal-body" style="padding:40px 50px;">
-                  <form role="form">
+                  <form:form  role="form" commandName="user"  method="POST">
                      <div class="form-group">
-                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+                        <form:input path="email" type="email" class="form-control" id="email" placeholder="Enter email"/>
                      </div>
                      <div class="form-group">
                         <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" class="form-control" id="usrname" placeholder="Enter user name">
+                        <form:input path="name" type="text" class="form-control" id="usrname" placeholder="Enter user name"/>
                      </div>
                      <div class="form-group">
                         <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                        <input type="password" class="form-control" id="psw" placeholder="Enter password">
+                        <form:input  path="password" type="password" class="form-control" id="psw" placeholder="Enter password"/>
                      </div>
                      <div class="form-group">
                         <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                        <input type="password" class="form-control" id="repsw" placeholder="confirm password">
+                        <form:input path="repassword" type="password" class="form-control" id="repsw" placeholder="confirm password"/>
                      </div>
                      <div class="checkbox">
                         <label><input type="checkbox" value="" checked>Remember me</label>
                      </div>
                      <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-                  </form>
+                  </form:form>
                </div>
                <div class="modal-footer">
                   <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
@@ -118,8 +64,7 @@
             </div>
          </div>
       </div>
-     
-      <!-- popup registration form end  -->
+      
       <!--Navigation-->
       <!--Header-->
       <nav class="navbar navbar-inverse  navbar-fixed-top">
@@ -147,513 +92,521 @@
                         <a href="#" tabindex="-1">ENGLISH</a>
                      </li>
                   </ul>
-                 </li>
-                 <ul class="nav navbar-nav navbar-right dropdown">
-               <li>
-                  <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalLRForm" style="line-height:29px">Sign In</a>
                </li>
+               <ul class="nav navbar-nav navbar-right dropdown">
+                  <li>
+                     <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalLRForm" style="line-height:29px">Sign In</a>
+                  </li>
                </ul>
                <ul class="nav navbar-nav navbar-right dropdown">
-               <li>
-                  <a href="" class="btn btn-primary" data-toggle="modal" data-target="#Registration" style="line-height:29px">Sign Up</a>
-               </li>
+                  <li>
+                     <a href="" class="btn btn-primary" data-toggle="modal" data-target="#Registration" style="line-height:29px">Sign Up</a>
+                  </li>
                </ul>
             </ul>
-          </div>
-            <!--container-fluid-->
+         </div>
+         <!--container-fluid-->
       </nav>
       <header>
-      <div class="header">
-      <nav class="navbar navbar-default">
-      <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"
-         data-toggle="collapse"
-         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span> <span
-         class="icon-bar"></span> <span class="icon-bar"></span> <span
-         class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="http://www.risingelection.com/">
-      <img	src="./resources/images/logo.png" class="img-responsive" alt="" /></a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse"
-         id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right"
-         style="float: right !important;">
-      <li class=" "><a href="http://www.risingelection.com/home"
-         class='hvr-float'><img src="./resources/images/head-home.png"
-         class="img-responsive" alt="" /> <span>Home</span></a></li>
-      <li class=" "><a href="http://www.risingelection.com/blog"
-         class='hvr-float'><img src="./resources/images/head-blog.png"
-         class="img-responsive" alt="" /><span>Blog</span></a></li>
-      <li class=" "><a
-         href="http://www.risingelection.com/election-day"
-         class='hvr-float'><img src="./resources/images/head-govern.png"
-         class="img-responsive" alt="" /><span>Election Day</span></a></li>
-      <li class=" "><a
-         href="http://www.risingelection.com/election-data"
-         class='hvr-float'><img src="./resources/images/Data_icon.png"
-         class="img-responsive" alt="" /><span>Survey Data</span></a></li>
-      <li class=" "><a
-         href="http://www.risingelection.com/complaints"
-         class='hvr-float'><img
-         src="./resources/images/head-govern.png"
-         class="img-responsive" alt="" /><span>Complaint</span></a></li>
-      <li class=" "><a
-         href="http://www.risingelection.com/risingyojana"
-         class='hvr-float'><img
-         src="./resources/images/head-govern.png"
-         class="img-responsive" alt="" /><span>Yojana</span></a></li>																																																
-      </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-      </nav>
-      </div>
+         <div class="header">
+            <nav class="navbar navbar-default">
+               <div class="container">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                     <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                     <span class="sr-only">Toggle navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span>
+                     </button>
+                     <a class="navbar-brand" href="http://www.risingelection.com/">
+                     <img	src="./resources/images/logo.png" class="img-responsive" alt="" /></a>
+                  </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse"   id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav navbar-right"
+                        style="float: right !important;">
+                        <li class=" "><a href="./view?name=index"            class='hvr-float'><img src="./resources/images/head-home.png"
+                           class="img-responsive" alt="" /> <span>Home</span></a></li>
+                        <li class=" "><a href="./view?name=blog"
+                           class='hvr-float'><img src="./resources/images/head-blog.png"
+                           class="img-responsive" alt="" /><span>Blog</span></a></li>
+                        <li class=" "><a
+                           href="./view?name=election_day"
+                           class='hvr-float'><img src="./resources/images/head-govern.png"
+                           class="img-responsive" alt="" /><span>Election Day</span></a></li>
+                        <li class=" "><a
+                           href="./view?name=election_data"
+                           class='hvr-float'><img src="./resources/images/Data_icon.png"
+                           class="img-responsive" alt="" /><span>Survey Data</span></a></li>
+                        <li class=" "><a
+                           href="./view?name=complaints"
+                           class='hvr-float'><img
+                           src="./resources/images/head-govern.png"
+                           class="img-responsive" alt="" /><span>Complaint</span></a></li>
+                        <li class=" "><a
+                           href="./view?name=risingyojana"
+                           class='hvr-float'><img
+                           src="./resources/images/head-govern.png"
+                           class="img-responsive" alt="" /><span>Yojana</span></a></li>
+                     </ul>
+                  </div>
+                  <!-- /.navbar-collapse -->
+               </div>
+               <!-- /.container-fluid -->
+            </nav>
+         </div>
       </header>
+     <!-- Navigation end -->
       <div class="main-blog-banner">
-      <div id="cbp-fwslider" class="cbp-fwslider">
-      <ul>
-      <li>
-      <div class="container">
-      <div class="row">
-      <div class="col-md-6">
-      <h1>With Rahul at Helm in Congress, PM Modi Calls for
-      Promotion of Youth in BJP</h1>
-      <p>
-      <p>New Delhi: Prime Minister Narendra Modi in his first
-      address to BJP MPs in the ongoing Winter Session called for
-      promotion of youth both within and outside the party.</p>
-      <p>At the beginning of the meeting on</p>
-      <p>
-      By <a href="http://www.risingelection.com/author/News18.com">News18.com</a>
-      on December 21, 2017 in <a
-         href="http://www.risingelection.com/category/2" rel="tag">Election</a>
-      </p>
-      <div class="blogread">
-      <a
-         href="./resources/images/blogs/with-rahul-at-helm-in-congress-pm-modi-calls-for-promotion-of-youth-in-bjp">READ
-      MORE</a>
-      </div>
-      </div>
-      <div class="col-md-6">
-      <img
-         src="./resources/images/blog/amit-shah-PM-Modi.jpg"
-         class="img-responsive" alt="" />
-      </div>
-      </div>
-      </div>
-      </li>
-      <li>
-      <div class="container">
-      <div class="row">
-      <div class="col-md-6">
-      <h1>Sena Dishes Out Advice to BJP Post its Gujarat,
-      Himachal Wins; JD(U) too Has Something to Say</h1>
-      <p>
-      <p>Patna: A hard fought win for the BJP in Gujarat had
-      resonance thousands of kilometres away in Bihar where its
-      alliance partner, Janata Dal (United), advised the Narendra
-      Modi government to focus on issues related</p>
-      <p>
-      By <a
-         href="http://www.risingelection.com/author/Alok Kumar | News18">Alok
-      Kumar | News18</a> on December 21, 2017 in <a
-         href="http://www.risingelection.com/category/2" rel="tag">Election</a>
-      </p>
-      <div class="blogread">
-      <a
-         href="blogs/sena-dishes-out-advice-to-bjp-post-its-gujarat-himachal-wins-jd-u-too-has-something-to-say">READ
-      MORE</a>
-      </div>
-      </div>
-      <div class="col-md-6">
-      <img
-         src="./resources/images/blog/PTI12_18_2017_000219B.jpg"
-         class="img-responsive" alt="" />
-      </div>
-      </div>
-      </div>
-      </li>
-      <li>
-      <div class="container">
-      <div class="row">
-      <div class="col-md-6">
-      <h1>Who will be next Himachal Pradesh CM? BJP central
-      observers to arrive in Shimla today</h1>
-      <p>
-      <p>Shimla: BJP central observers Nirmala Sitharaman and
-      Narendra Singh Tomar are scheduled to arrive in Shimla to set
-      off the process for electing the new chief minister of Himachal
-      Pradesh, days after party's landslide victory</p>
-      <p>
-      By <a
-         href="http://www.risingelection.com/author/By Zee Media Bureau">By
-      Zee Media Bureau</a> on December 21, 2017 in <a
-         href="http://www.risingelection.com/category/2" rel="tag">Election</a>
-      </p>
-      <div class="blogread">
-      <a
-         href="blogs/who-will-be-next-himachal-pradesh-cm-bjp-central-observers-to-arrive-in-shimla-today">READ
-      MORE</a>
-      </div>
-      </div>
-      <div class="col-md-6">
-      <img
-         src="./resources/images/blog/648935-thakur-nadda-1.jpg"
-         class="img-responsive" alt="" />
-      </div>
-      </div>
-      </div>
-      </li>
-      </ul>
-      </div>
+         <div id="cbp-fwslider" class="cbp-fwslider">
+            <ul>
+               <li>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <h1>With Rahul at Helm in Congress, PM Modi Calls for
+                              Promotion of Youth in BJP
+                           </h1>
+                           <p>
+                           <p>New Delhi: Prime Minister Narendra Modi in his first
+                              address to BJP MPs in the ongoing Winter Session called for
+                              promotion of youth both within and outside the party.
+                           </p>
+                           <p>At the beginning of the meeting on</p>
+                           <p>
+                              By <a href="http://www.risingelection.com/author/News18.com">News18.com</a>
+                              on December 21, 2017 in <a
+                                 href="http://www.risingelection.com/category/2" rel="tag">Election</a>
+                           </p>
+                           <div class="blogread">
+                              <a
+                                 href="./resources/images/blogs/with-rahul-at-helm-in-congress-pm-modi-calls-for-promotion-of-youth-in-bjp">READ
+                              MORE</a>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <img
+                              src="./resources/images/blog/amit-shah-PM-Modi.jpg"
+                              class="img-responsive" alt="" />
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <h1>Sena Dishes Out Advice to BJP Post its Gujarat,
+                              Himachal Wins; JD(U) too Has Something to Say
+                           </h1>
+                           <p>
+                           <p>Patna: A hard fought win for the BJP in Gujarat had
+                              resonance thousands of kilometres away in Bihar where its
+                              alliance partner, Janata Dal (United), advised the Narendra
+                              Modi government to focus on issues related
+                           </p>
+                           <p>
+                              By <a
+                                 href="http://www.risingelection.com/author/Alok Kumar | News18">Alok
+                              Kumar | News18</a> on December 21, 2017 in <a
+                                 href="http://www.risingelection.com/category/2" rel="tag">Election</a>
+                           </p>
+                           <div class="blogread">
+                              <a
+                                 href="blogs/sena-dishes-out-advice-to-bjp-post-its-gujarat-himachal-wins-jd-u-too-has-something-to-say">READ
+                              MORE</a>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <img
+                              src="./resources/images/blog/PTI12_18_2017_000219B.jpg"
+                              class="img-responsive" alt="" />
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <h1>Who will be next Himachal Pradesh CM? BJP central
+                              observers to arrive in Shimla today
+                           </h1>
+                           <p>
+                           <p>Shimla: BJP central observers Nirmala Sitharaman and
+                              Narendra Singh Tomar are scheduled to arrive in Shimla to set
+                              off the process for electing the new chief minister of Himachal
+                              Pradesh, days after party's landslide victory
+                           </p>
+                           <p>
+                              By <a
+                                 href="http://www.risingelection.com/author/By Zee Media Bureau">By
+                              Zee Media Bureau</a> on December 21, 2017 in <a
+                                 href="http://www.risingelection.com/category/2" rel="tag">Election</a>
+                           </p>
+                           <div class="blogread">
+                              <a
+                                 href="blogs/who-will-be-next-himachal-pradesh-cm-bjp-central-observers-to-arrive-in-shimla-today">READ
+                              MORE</a>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <img
+                              src="./resources/images/blog/648935-thakur-nadda-1.jpg"
+                              class="img-responsive" alt="" />
+                        </div>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </div>
       </div>
       <div class="clearfix"></div>
       <div class="mainblog">
-      <div class="container">
-      <div class="row">
-      <div class="col-md-8 nopadding">
-      <div id="pagination"></div>
-      <!-- New block -->
-      <div class="row">
-      <div class="col-md-6">
-      <article class="blogsdisplay">
-      <h3>WHY DID AIADMK WIN IN TAMIL NADU?</h3>
-      <p>
-      By <a
-         href="http://www.risingelection.com/author/Deepak Parvatiyar">Deepak
-      Parvatiyar</a> on May 19, 2016 in <a
-         href="http://www.risingelection.com/category/2" rel="tag">Election</a>
-      </p>
-      <img
-         src="http://www.risingelection.com/./resources/images/blog/AIADMK-wins-in-tamil-nadu-elections.jpg"
-         class="img-responsive" alt="">
-      <p></p>
-      <p class="text-justify">
-      By retaining her government for the second consecutive term, J
-      Jayalalithaa made history in Tamil Nadu. Despite All India
-      Anna Dravida Munnetra Kazahagam's seats share going down, Amma
-      did prove most of the exit...<a
-         href="http://www.risingelection.com/blogs/why-did-aiadmk-win-in-tamil-nadu">Read
-      More</a>
-      </p>
-      </article>
-      </div>
-      <div class="row">
-      <div class="col-md-6">
-      <article class="blogsdisplay">
-      <h3>iPhone X: 7 new features it brings to Apple phones</h3>
-      <p>
-      By <a href="http://www.risingelection.com/author/manish s">manish
-      s</a> on September 04, 2017 in <a
-         href="http://www.risingelection.com/category/2" rel="tag">Election</a>
-      </p>
-      <img
-         src="http://www.risingelection.com/images/blog/mobile.png"
-         class="img-responsive" alt="">
-      <p></p>
-      <p class="text-justify">
-      Apple's tenth-anniversary iPhone, iPhone X (pronounced iPhone
-      10), is here. The all-new Apple iPhone is surely one of the
-      most impressive iPhones to launch so far. It packs loads of
-      new and cool features...<a
-         href="http://www.risingelection.com/blogs/iphone-x-7-new-features-it-brings-to-apple-phones">Read
-      More</a>
-      </p>
-      </article>
-      </div>
-      <div class="clearfix marginbot40"></div>
-      <div class="row">
-      <div class="col-md-6">
-      <article class="blogsdisplay">
-      <h3>J&amp;K: BSF jawan killed in ceasefire violation in
-      Arnia sector</h3>
-      <p>
-      By <a href="http://www.risingelection.com/author/Dailyhunt">Dailyhunt</a>
-      on September 15, 2017 in <a
-         href="http://www.risingelection.com/category/2" rel="tag">Election</a>
-      </p>
-      <img
-         src="./resources/images/blog/800x480_d8bc6cbd48a2dc96e39bfa8dc88b9be0.jpg"
-         class="img-responsive" alt="">
-      <p></p>
-      <p class="text-justify">
-      Jammu: A Border Security Force (BSF) jawan was killed when
-      Pakistani troops violated ceasefire for the third
-      consecutive day on Friday along the International Border
-      (IB) in Jammu district.<br> Constable Bijender Bahadur
-      was on...<a
-         href="http://www.risingelection.com/blogs/j-k-bsf-jawan-killed-in-ceasefire-violation-in-arnia-sector">Read
-      More</a>
-      </p>
-      </article>
-      </div>
-      <div class="row">
-      <div class="col-md-6">
-      <article class="blogsdisplay">
-      <h3>Rohingya Muslim refugees deportation: Govt to file
-      affidavit in Supreme Court on September 18, says Rajnath
-      Singh</h3>
-      <p>
-      By <a href="http://www.risingelection.com/author/zeenews">zeenews</a>
-      on September 15, 2017 in <a
-         href="http://www.risingelection.com/category/2" rel="tag">Election</a>
-      </p>
-      <img
-         src="./resources/images/blog/624870-rohingyamuslims-rajnath.jpg"
-         class="img-responsive" alt="">
-      <p></p>
-      <p>New Delhi: Union Home Minister Rajnath Singh on
-      Friday confirmed that the central government will file an
-      affidavit in the Supreme Court to deport illegal Rohingya
-      Muslim immigrants to Myanmar.</p>
-      <p>
-      The Modi government is firm in...<a
-         href="http://www.risingelection.com/blogs/rohingya-muslim-refugees-deportation-govt-to-file-affidavit-in-supreme-court-on-september-18-says-rajnath-singh">Read
-      More</a>
-      </p>
-      </article>
-      </div>
-      <div class="clearfix marginbot40"></div>
-      </div>
-      <br>
-      <div class=" pagination">
-      <span class="current">1</span><a class="page-numbers"
-         href="?page=2">2</a><a class="page-numbers" href="?page=3">3</a><a
-         class="page-numbers" href="?page=4">4</a><a
-         class="page-numbers" href="?page=5">5</a><a
-         class="page-numbers" href="?page=6">6</a><a
-         class="page-numbers" href="?page=7">7</a><a
-         class="page-numbers" href="?page=8">8</a><a
-         class="page-numbers" href="?page=9">9</a><a
-         class="page-numbers" href="?page=2">next</a><a
-         class="page-numbers" href="?page=59">Last</a>
-      </div>
-      </div>
-      </div>
-      <div class="clearfix"></div>
-      </div>
-      <!-- End Block -->
-      <div class="clearfix marginbot40"></div>
-      </div>
-      <div class="col-md-4">
-      <div class="blogtabs">
-      <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#popular"
-         aria-controls="popular" role="tab" data-toggle="tab">Popular</a></li>
-      <li role="presentation"><a href="#comments"
-         aria-controls="comments" role="tab" data-toggle="tab">Comments</a></li>
-      <li role="presentation"><a href="#tags" aria-controls="tags"
-         role="tab" data-toggle="tab">Tags</a></li>
-      </ul>
-      <!-- Tab panes -->
-      <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="popular">
-      <div class="tab_content">
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="blogs/why-did-aiadmk-win-in-tamil-nadu"
-         title="WHY DID AIADMK WIN IN TAMIL NADU?"><img
-         width="75" height="60"
-         src="./resources/images/blog/AIADMK-wins-in-tamil-nadu-elections.jpg"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/why-did-aiadmk-win-in-tamil-nadu"
-         title="Bradford Design Exchange">WHY DID AIADMK WIN IN
-      TAMIL NADU?</a>
-      </h3>
-      <div class="tabs-meta">May 19, 2016</div>
-      </div>
-      </div>
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="blogs/london-underground-train-attack-isis-claims-responsibility-terror-threat-level-is-raised-to-critical"
-         title="London underground train attack: ISIS claims responsibility"><img
-         width="75" height="60"
-         src="./resources/images/blog/1505528997-AP_london_train.jpg"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/london-underground-train-attack-isis-claims-responsibility-terror-threat-level-is-raised-to-critical"
-         title="Bradford Design Exchange">London underground
-      train attack: ISIS claims responsibility, terror threat
-      level is raised to critical</a>
-      </h3>
-      <div class="tabs-meta">September 16, 2017</div>
-      </div>
-      </div>
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="blogs/shiv-sena-slams-mumbai-ahmedabad-bullet-train-project-calls-it-pm-modi-s-wealthy-dream"
-         title="Shiv Sena slams Mumbai-Ahmedabad bullet train project"><img
-         width="75" height="60"
-         src="./resources/images/blog/624556-uddhav-thackeray-1.jpg"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/shiv-sena-slams-mumbai-ahmedabad-bullet-train-project-calls-it-pm-modi-s-wealthy-dream"
-         title="Bradford Design Exchange"> Shiv Sena slams
-      Mumbai-Ahmedabad bullet train project, calls it PM Modi's
-      'wealthy dream'</a>
-      </h3>
-      <div class="tabs-meta">September 16, 2017</div>
-      </div>
-      </div>
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="blogs/rbi-governor-urjit-patel-says-economic-growth-rate-likely-to-exceed-7-in-upcoming-quarters"
-         title="RBI Governor Urjit Patel says economic growth rate likely to exceed 7% |  Risingelection"><img
-         width="75" height="60"
-         src="./resources/images/blog/1507517517-patel_1.jpg"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/rbi-governor-urjit-patel-says-economic-growth-rate-likely-to-exceed-7-in-upcoming-quarters"
-         title="Bradford Design Exchange">RBI Governor Urjit
-      Patel says economic growth rate likely to exceed 7% in
-      upcoming quarters</a>
-      </h3>
-      <div class="tabs-meta">October 09, 2017</div>
-      </div>
-      </div>
-      </div>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="comments">
-      <div class="tab_content"></div>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="tags">
-      <div class="tagcloud">
-      <a href="http://www.risingelection.com/category/1" rel="tag">Real
-      Estate</a> <a href="http://www.risingelection.com/category/2"
-         rel="tag">Election</a> <a
-         href="http://www.risingelection.com/category/3" rel="tag">Eduction</a>
-      <a href="http://www.risingelection.com/category/4" rel="tag">INDIA</a>
-      <a href="http://www.risingelection.com/category/5" rel="tag">BUSINESS</a>
-      <a href="http://www.risingelection.com/category/6" rel="tag">Business
-      & Economy</a> <a href="http://www.risingelection.com/category/7"
-         rel="tag">POLITICS</a> <a
-         href="http://www.risingelection.com/category/8" rel="tag">WORLD</a>
-      <a href="http://www.risingelection.com/category/9" rel="tag">Gujarat</a>
-      </div>
-      </div>
-      </div>
-      </div>
-      <div class="widget">
-      <!-- BEGIN WIDGET -->
-      <h3 class="sidebar-widget-title">
-      <span><a href="">Recent Posts</a></span>
-      </h3>
-      <div class="tab_content">
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="with-rahul-at-helm-in-congress-pm-modi-calls-for-promotion-of-youth-in-bjp"
-         title="With Rahul at Helm in Congress, PM Modi Calls for Promotion of Youth in BJP | Risingelection"><img
-         width="75" height="60"
-         src="./resources/images/blog/amit-shah-PM-Modi.jpg"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/with-rahul-at-helm-in-congress-pm-modi-calls-for-promotion-of-youth-in-bjp"
-         title="Bradford Design Exchange">With Rahul at Helm in
-      Congress, PM Modi Calls for Promotion of Youth in BJP</a>
-      </h3>
-      <div class="tabs-meta">December 21, 2017</div>
-      </div>
-      </div>
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="sena-dishes-out-advice-to-bjp-post-its-gujarat-himachal-wins-jd-u-too-has-something-to-say"
-         title="Sena Dishes Out Advice to BJP Post its Gujarat  Himachal Wins JDU too Has Something to Say"><img
-         width="75" height="60"
-         src="./resources/images/blog/PTI12_18_2017_000219B.jpg"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/sena-dishes-out-advice-to-bjp-post-its-gujarat-himachal-wins-jd-u-too-has-something-to-say"
-         title="Bradford Design Exchange">Sena Dishes Out Advice
-      to BJP Post its Gujarat, Himachal Wins; JD(U) too Has
-      Something to Say</a>
-      </h3>
-      <div class="tabs-meta">December 21, 2017</div>
-      </div>
-      </div>
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="who-will-be-next-himachal-pradesh-cm-bjp-central-observers-to-arrive-in-shimla-today"
-         title="Who will be next Himachal Pradesh CM? BJP central observers to arrive in Shimla today"><img
-         width="75" height="60"
-         src="./resources/images/blog/648935-thakur-nadda-1.jpg"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/who-will-be-next-himachal-pradesh-cm-bjp-central-observers-to-arrive-in-shimla-today"
-         title="Bradford Design Exchange">Who will be next
-      Himachal Pradesh CM? BJP central observers to arrive in
-      Shimla today</a>
-      </h3>
-      <div class="tabs-meta">December 21, 2017</div>
-      </div>
-      </div>
-      <div class="block-tabs">
-      <div class="tabs-image">
-      <a class="standard-format-icon"
-         href="a-little-bit-of-arvind-kejriwal-in-rahul-gandhi-s-gujarat-election-campaign"
-         title="A Little Bit of Arvind Kejriwal in Rahul Gandhi's Gujarat Election Campaign | Risingelection"><img
-         width="75" height="60"
-         src="./resources/images/blog/rahul-gandhi-arvind-kejriwal-pti-875.png"
-         class="fadeover wp-post-image opacity1"
-         alt="865766892_1f40f95a3f_b"></a>
-      </div>
-      <div class="description">
-      <h3>
-      <a
-         href="http://www.risingelection.com/blogs/a-little-bit-of-arvind-kejriwal-in-rahul-gandhi-s-gujarat-election-campaign"
-         title="Bradford Design Exchange">A Little Bit of Arvind
-      Kejriwal in Rahul Gandhi's Gujarat Election Campaign</a>
-      </h3>
-      <div class="tabs-meta">December 13, 2017</div>
-      </div>
-      </div>
-      </div>
-      <!-- END WIDGET -->
-      </div>
-      </div>
-      </div>
-      </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-8 nopadding">
+                  <div id="pagination"></div>
+                  <!-- New block -->
+                  <div class="row">
+                     <div class="col-md-6">
+                        <article class="blogsdisplay">
+                           <h3>WHY DID AIADMK WIN IN TAMIL NADU?</h3>
+                           <p>
+                              By <a
+                                 href="http://www.risingelection.com/author/Deepak Parvatiyar">Deepak
+                              Parvatiyar</a> on May 19, 2016 in <a
+                                 href="http://www.risingelection.com/category/2" rel="tag">Election</a>
+                           </p>
+                           <img
+                              src="http://www.risingelection.com/./resources/images/blog/AIADMK-wins-in-tamil-nadu-elections.jpg"
+                              class="img-responsive" alt="">
+                           <p></p>
+                           <p class="text-justify">
+                              By retaining her government for the second consecutive term, J
+                              Jayalalithaa made history in Tamil Nadu. Despite All India
+                              Anna Dravida Munnetra Kazahagam's seats share going down, Amma
+                              did prove most of the exit...<a
+                                 href="http://www.risingelection.com/blogs/why-did-aiadmk-win-in-tamil-nadu">Read
+                              More</a>
+                           </p>
+                        </article>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <article class="blogsdisplay">
+                              <h3>iPhone X: 7 new features it brings to Apple phones</h3>
+                              <p>
+                                 By <a href="http://www.risingelection.com/author/manish s">manish
+                                 s</a> on September 04, 2017 in <a
+                                    href="http://www.risingelection.com/category/2" rel="tag">Election</a>
+                              </p>
+                              <img
+                                 src="http://www.risingelection.com/images/blog/mobile.png"
+                                 class="img-responsive" alt="">
+                              <p></p>
+                              <p class="text-justify">
+                                 Apple's tenth-anniversary iPhone, iPhone X (pronounced iPhone
+                                 10), is here. The all-new Apple iPhone is surely one of the
+                                 most impressive iPhones to launch so far. It packs loads of
+                                 new and cool features...<a
+                                    href="http://www.risingelection.com/blogs/iphone-x-7-new-features-it-brings-to-apple-phones">Read
+                                 More</a>
+                              </p>
+                           </article>
+                        </div>
+                        <div class="clearfix marginbot40"></div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <article class="blogsdisplay">
+                                 <h3>J&amp;K: BSF jawan killed in ceasefire violation in
+                                    Arnia sector
+                                 </h3>
+                                 <p>
+                                    By <a href="http://www.risingelection.com/author/Dailyhunt">Dailyhunt</a>
+                                    on September 15, 2017 in <a
+                                       href="http://www.risingelection.com/category/2" rel="tag">Election</a>
+                                 </p>
+                                 <img
+                                    src="./resources/images/blog/800x480_d8bc6cbd48a2dc96e39bfa8dc88b9be0.jpg"
+                                    class="img-responsive" alt="">
+                                 <p></p>
+                                 <p class="text-justify">
+                                    Jammu: A Border Security Force (BSF) jawan was killed when
+                                    Pakistani troops violated ceasefire for the third
+                                    consecutive day on Friday along the International Border
+                                    (IB) in Jammu district.<br> Constable Bijender Bahadur
+                                    was on...<a
+                                       href="http://www.risingelection.com/blogs/j-k-bsf-jawan-killed-in-ceasefire-violation-in-arnia-sector">Read
+                                    More</a>
+                                 </p>
+                              </article>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <article class="blogsdisplay">
+                                    <h3>Rohingya Muslim refugees deportation: Govt to file
+                                       affidavit in Supreme Court on September 18, says Rajnath
+                                       Singh
+                                    </h3>
+                                    <p>
+                                       By <a href="http://www.risingelection.com/author/zeenews">zeenews</a>
+                                       on September 15, 2017 in <a
+                                          href="http://www.risingelection.com/category/2" rel="tag">Election</a>
+                                    </p>
+                                    <img
+                                       src="./resources/images/blog/624870-rohingyamuslims-rajnath.jpg"
+                                       class="img-responsive" alt="">
+                                    <p></p>
+                                    <p>New Delhi: Union Home Minister Rajnath Singh on
+                                       Friday confirmed that the central government will file an
+                                       affidavit in the Supreme Court to deport illegal Rohingya
+                                       Muslim immigrants to Myanmar.
+                                    </p>
+                                    <p>
+                                       The Modi government is firm in...<a
+                                          href="http://www.risingelection.com/blogs/rohingya-muslim-refugees-deportation-govt-to-file-affidavit-in-supreme-court-on-september-18-says-rajnath-singh">Read
+                                       More</a>
+                                    </p>
+                                 </article>
+                              </div>
+                              <div class="clearfix marginbot40"></div>
+                           </div>
+                           <br>
+                           <div class=" pagination">
+                              <span class="current">1</span><a class="page-numbers"
+                                 href="?page=2">2</a><a class="page-numbers" href="?page=3">3</a><a
+                                 class="page-numbers" href="?page=4">4</a><a
+                                 class="page-numbers" href="?page=5">5</a><a
+                                 class="page-numbers" href="?page=6">6</a><a
+                                 class="page-numbers" href="?page=7">7</a><a
+                                 class="page-numbers" href="?page=8">8</a><a
+                                 class="page-numbers" href="?page=9">9</a><a
+                                 class="page-numbers" href="?page=2">next</a><a
+                                 class="page-numbers" href="?page=59">Last</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="clearfix"></div>
+                  </div>
+                  <!-- End Block -->
+                  <div class="clearfix marginbot40"></div>
+               </div>
+               <div class="col-md-4">
+                  <div class="blogtabs">
+                     <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#popular"
+                           aria-controls="popular" role="tab" data-toggle="tab">Popular</a></li>
+                        <li role="presentation"><a href="#comments"
+                           aria-controls="comments" role="tab" data-toggle="tab">Comments</a></li>
+                        <li role="presentation"><a href="#tags" aria-controls="tags"
+                           role="tab" data-toggle="tab">Tags</a></li>
+                     </ul>
+                     <!-- Tab panes -->
+                     <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="popular">
+                           <div class="tab_content">
+                              <div class="block-tabs">
+                                 <div class="tabs-image">
+                                    <a class="standard-format-icon"
+                                       href="blogs/why-did-aiadmk-win-in-tamil-nadu"
+                                       title="WHY DID AIADMK WIN IN TAMIL NADU?"><img
+                                       width="75" height="60"
+                                       src="./resources/images/blog/AIADMK-wins-in-tamil-nadu-elections.jpg"
+                                       class="fadeover wp-post-image opacity1"
+                                       alt="865766892_1f40f95a3f_b"></a>
+                                 </div>
+                                 <div class="description">
+                                    <h3>
+                                       <a
+                                          href="http://www.risingelection.com/blogs/why-did-aiadmk-win-in-tamil-nadu"
+                                          title="Bradford Design Exchange">WHY DID AIADMK WIN IN
+                                       TAMIL NADU?</a>
+                                    </h3>
+                                    <div class="tabs-meta">May 19, 2016</div>
+                                 </div>
+                              </div>
+                              <div class="block-tabs">
+                                 <div class="tabs-image">
+                                    <a class="standard-format-icon"
+                                       href="blogs/london-underground-train-attack-isis-claims-responsibility-terror-threat-level-is-raised-to-critical"
+                                       title="London underground train attack: ISIS claims responsibility"><img
+                                       width="75" height="60"
+                                       src="./resources/images/blog/1505528997-AP_london_train.jpg"
+                                       class="fadeover wp-post-image opacity1"
+                                       alt="865766892_1f40f95a3f_b"></a>
+                                 </div>
+                                 <div class="description">
+                                    <h3>
+                                       <a
+                                          href="http://www.risingelection.com/blogs/london-underground-train-attack-isis-claims-responsibility-terror-threat-level-is-raised-to-critical"
+                                          title="Bradford Design Exchange">London underground
+                                       train attack: ISIS claims responsibility, terror threat
+                                       level is raised to critical</a>
+                                    </h3>
+                                    <div class="tabs-meta">September 16, 2017</div>
+                                 </div>
+                              </div>
+                              <div class="block-tabs">
+                                 <div class="tabs-image">
+                                    <a class="standard-format-icon"
+                                       href="blogs/shiv-sena-slams-mumbai-ahmedabad-bullet-train-project-calls-it-pm-modi-s-wealthy-dream"
+                                       title="Shiv Sena slams Mumbai-Ahmedabad bullet train project"><img
+                                       width="75" height="60"
+                                       src="./resources/images/blog/624556-uddhav-thackeray-1.jpg"
+                                       class="fadeover wp-post-image opacity1"
+                                       alt="865766892_1f40f95a3f_b"></a>
+                                 </div>
+                                 <div class="description">
+                                    <h3>
+                                       <a
+                                          href="http://www.risingelection.com/blogs/shiv-sena-slams-mumbai-ahmedabad-bullet-train-project-calls-it-pm-modi-s-wealthy-dream"
+                                          title="Bradford Design Exchange"> Shiv Sena slams
+                                       Mumbai-Ahmedabad bullet train project, calls it PM Modi's
+                                       'wealthy dream'</a>
+                                    </h3>
+                                    <div class="tabs-meta">September 16, 2017</div>
+                                 </div>
+                              </div>
+                              <div class="block-tabs">
+                                 <div class="tabs-image">
+                                    <a class="standard-format-icon"
+                                       href="blogs/rbi-governor-urjit-patel-says-economic-growth-rate-likely-to-exceed-7-in-upcoming-quarters"
+                                       title="RBI Governor Urjit Patel says economic growth rate likely to exceed 7% |  Risingelection"><img
+                                       width="75" height="60"
+                                       src="./resources/images/blog/1507517517-patel_1.jpg"
+                                       class="fadeover wp-post-image opacity1"
+                                       alt="865766892_1f40f95a3f_b"></a>
+                                 </div>
+                                 <div class="description">
+                                    <h3>
+                                       <a
+                                          href="http://www.risingelection.com/blogs/rbi-governor-urjit-patel-says-economic-growth-rate-likely-to-exceed-7-in-upcoming-quarters"
+                                          title="Bradford Design Exchange">RBI Governor Urjit
+                                       Patel says economic growth rate likely to exceed 7% in
+                                       upcoming quarters</a>
+                                    </h3>
+                                    <div class="tabs-meta">October 09, 2017</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="comments">
+                           <div class="tab_content"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tags">
+                           <div class="tagcloud">
+                              <a href="http://www.risingelection.com/category/1" rel="tag">Real
+                              Estate</a> <a href="http://www.risingelection.com/category/2"
+                                 rel="tag">Election</a> <a
+                                 href="http://www.risingelection.com/category/3" rel="tag">Eduction</a>
+                              <a href="http://www.risingelection.com/category/4" rel="tag">INDIA</a>
+                              <a href="http://www.risingelection.com/category/5" rel="tag">BUSINESS</a>
+                              <a href="http://www.risingelection.com/category/6" rel="tag">Business
+                              & Economy</a> <a href="http://www.risingelection.com/category/7"
+                                 rel="tag">POLITICS</a> <a
+                                 href="http://www.risingelection.com/category/8" rel="tag">WORLD</a>
+                              <a href="http://www.risingelection.com/category/9" rel="tag">Gujarat</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="widget">
+                     <!-- BEGIN WIDGET -->
+                     <h3 class="sidebar-widget-title">
+                        <span><a href="">Recent Posts</a></span>
+                     </h3>
+                     <div class="tab_content">
+                        <div class="block-tabs">
+                           <div class="tabs-image">
+                              <a class="standard-format-icon"
+                                 href="with-rahul-at-helm-in-congress-pm-modi-calls-for-promotion-of-youth-in-bjp"
+                                 title="With Rahul at Helm in Congress, PM Modi Calls for Promotion of Youth in BJP | Risingelection"><img
+                                 width="75" height="60"
+                                 src="./resources/images/blog/amit-shah-PM-Modi.jpg"
+                                 class="fadeover wp-post-image opacity1"
+                                 alt="865766892_1f40f95a3f_b"></a>
+                           </div>
+                           <div class="description">
+                              <h3>
+                                 <a
+                                    href="http://www.risingelection.com/blogs/with-rahul-at-helm-in-congress-pm-modi-calls-for-promotion-of-youth-in-bjp"
+                                    title="Bradford Design Exchange">With Rahul at Helm in
+                                 Congress, PM Modi Calls for Promotion of Youth in BJP</a>
+                              </h3>
+                              <div class="tabs-meta">December 21, 2017</div>
+                           </div>
+                        </div>
+                        <div class="block-tabs">
+                           <div class="tabs-image">
+                              <a class="standard-format-icon"
+                                 href="sena-dishes-out-advice-to-bjp-post-its-gujarat-himachal-wins-jd-u-too-has-something-to-say"
+                                 title="Sena Dishes Out Advice to BJP Post its Gujarat  Himachal Wins JDU too Has Something to Say"><img
+                                 width="75" height="60"
+                                 src="./resources/images/blog/PTI12_18_2017_000219B.jpg"
+                                 class="fadeover wp-post-image opacity1"
+                                 alt="865766892_1f40f95a3f_b"></a>
+                           </div>
+                           <div class="description">
+                              <h3>
+                                 <a
+                                    href="http://www.risingelection.com/blogs/sena-dishes-out-advice-to-bjp-post-its-gujarat-himachal-wins-jd-u-too-has-something-to-say"
+                                    title="Bradford Design Exchange">Sena Dishes Out Advice
+                                 to BJP Post its Gujarat, Himachal Wins; JD(U) too Has
+                                 Something to Say</a>
+                              </h3>
+                              <div class="tabs-meta">December 21, 2017</div>
+                           </div>
+                        </div>
+                        <div class="block-tabs">
+                           <div class="tabs-image">
+                              <a class="standard-format-icon"
+                                 href="who-will-be-next-himachal-pradesh-cm-bjp-central-observers-to-arrive-in-shimla-today"
+                                 title="Who will be next Himachal Pradesh CM? BJP central observers to arrive in Shimla today"><img
+                                 width="75" height="60"
+                                 src="./resources/images/blog/648935-thakur-nadda-1.jpg"
+                                 class="fadeover wp-post-image opacity1"
+                                 alt="865766892_1f40f95a3f_b"></a>
+                           </div>
+                           <div class="description">
+                              <h3>
+                                 <a
+                                    href="http://www.risingelection.com/blogs/who-will-be-next-himachal-pradesh-cm-bjp-central-observers-to-arrive-in-shimla-today"
+                                    title="Bradford Design Exchange">Who will be next
+                                 Himachal Pradesh CM? BJP central observers to arrive in
+                                 Shimla today</a>
+                              </h3>
+                              <div class="tabs-meta">December 21, 2017</div>
+                           </div>
+                        </div>
+                        <div class="block-tabs">
+                           <div class="tabs-image">
+                              <a class="standard-format-icon"
+                                 href="a-little-bit-of-arvind-kejriwal-in-rahul-gandhi-s-gujarat-election-campaign"
+                                 title="A Little Bit of Arvind Kejriwal in Rahul Gandhi's Gujarat Election Campaign | Risingelection"><img
+                                 width="75" height="60"
+                                 src="./resources/images/blog/rahul-gandhi-arvind-kejriwal-pti-875.png"
+                                 class="fadeover wp-post-image opacity1"
+                                 alt="865766892_1f40f95a3f_b"></a>
+                           </div>
+                           <div class="description">
+                              <h3>
+                                 <a
+                                    href="http://www.risingelection.com/blogs/a-little-bit-of-arvind-kejriwal-in-rahul-gandhi-s-gujarat-election-campaign"
+                                    title="Bradford Design Exchange">A Little Bit of Arvind
+                                 Kejriwal in Rahul Gandhi's Gujarat Election Campaign</a>
+                              </h3>
+                              <div class="tabs-meta">December 13, 2017</div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- END WIDGET -->
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
       <!--
          </body></html> -->
@@ -662,112 +615,118 @@
          Top Footer
          =================================-->
       <footer>
-      <div class="top-footer">
-      <div class="container">
-      <div class="row">
-      <div class="col-md-2 col-xs-6">
-      <ul class="list-unstyled">
-      <!-- <li><a href="#">About Us</a></li>
-         <li><a href="#">In the News</a></li>
-         <li><a href="#">Copyright</a></li>
-         <li><a href="#">Privacy Policy</a></li>
-         <li><a href="#">Advertise</a></li> -->
-      <li><a href="http://www.risingelection.com/about-us">About
-      Us</a></li>
-      <li><a href="http://www.risingelection.com/copyright">Copyright</a></li>
-      <li><a href="http://www.risingelection.com/advertise">Advertise</a></li>
-      </ul>
-      </div>
-      <div class="col-md-2 col-xs-6">
-      <ul class="list-unstyled">
-      <li><a href="http://www.risingelection.com/home">Home</a></li>
-      <li><a href="http://www.risingelection.com/news-channels">News
-      Channels</a></li>
-      </ul>
-      </div>
-      <div class="col-md-2 col-xs-6">
-      <ul class="list-unstyled">
-      <li><a
-         href="http://www.risingelection.com/archive-did-you-know">Archive
-      Did you Know</a></li>
-      <li><a
-         href="http://www.risingelection.com/archive-view-polls">Archive
-      View Polls</a></li>
-      <li><a href="http://www.risingelection.com/web-sitemap">Sitemap</a></li>
-      </ul>
-      </div>
-      <div class="col-md-2 col-xs-6">
-      <ul class="list-unstyled">
-      <li><a href="https://www.facebook.com/risingelection/"
-         target="_blank">Facebook</a></li>
-      <li><a href="https://twitter.com/risingelection"
-         target="_blank">Twitter</a></li>
-      <li><a
-         href="https://www.linkedin.com/company/rising-elections"
-         target="_blank">Linked In</a></li>
-      <li><a href="https://plus.google.com/109869287593393897837"
-         target="_blank">Google Plus</a></li>
-      <li><a href="https://www.instagram.com/risingelection/"
-         target="_blank">Instagram</a></li>
-      </ul>
-      </div>
-      <div class="col-md-2 col-xs-6">
-      <ul class="list-unstyled">
-      <li><a href="http://www.risingelection.com/have-a-question">Have
-      a question?</a></li>
-      <li><a href="http://www.risingelection.com/data-correction">Data
-      Correction</a></li>
-      <li><a href="http://www.risingelection.com/faq">FAQ</a></li>
-      </ul>
-      </div>
-      </div>
-      </div>
-      </div>
-      <div class="bottom-footer">
-      <div class="footer_bg">
-      <div class="footer font_20">
-      <div class="footer_header col-md-2">BREAKING NEWS</div>
-      <div class="news col-md-8">
-      <div class="caroufredsel_wrapper breakingnews1">
-      <dl id="ticker-1" class="breakingnews2">
-      <dd>
-      <a
-         href="https://www.ndtv.com/indians-abroad/nri-man-altaf-nazerali-gets-1-2-million-in-compensation-for-fake-news-article-in-canada-1905658"
-         target="_blank" title=""> NRI Man Gets $1.2 Million In
-      Compensation For Fake News Article In Canada </a>
-      </dd>
-      <dd>
-      <a
-         href="https://www.ndtv.com/world-news/moscow-may-ban-more-u-s-politicians-from-entering-russia-as-part-of-a-response-to-a-new-round-of-u-s-1905646"
-         target="_blank" title=""> Russia May Ban More US
-      Politicians Over Sanction: Deputy Foreign Minister </a>
-      </dd>
-      <dd>
-      <a
-         href="https://www.ndtv.com/world-news/thomas-cook-evacuates-300-from-egyptian-hotel-after-couples-death-1905635"
-         target="_blank" title=""> 300 Evacuated From Hotel After
-      Couple Die Within Hours Of Each Other </a>
-      </dd>
-      <dd>
-      <a
-         href="https://www.ndtv.com/kerala-news/2-kerala-government-officials-arrested-for-embezzling-relief-materials-1905626"
-         target="_blank" title=""> 2 Kerala Government Officials
-      Arrested For Embezzling Relief Materials </a>
-      </dd>
-      <dd>
-      <a
-         href="https://www.ndtv.com/india-news/20-men-acquitted-earlier-declared-guilty-in-2010-mirchpur-dalit-killings-1905621"
-         target="_blank" title=""> 20 Men Acquitted Earlier
-      Declared Guilty In 2010 Haryana Dalit Killings </a>
-      </dd>
-      </div>
-      <dd></dd>
-      </dl>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
+         <div class="top-footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-2 col-xs-6">
+                     <ul class="list-unstyled">
+                        <!-- <li><a href="#">About Us</a></li>
+                           <li><a href="#">In the News</a></li>
+                           <li><a href="#">Copyright</a></li>
+                           <li><a href="#">Privacy Policy</a></li>
+                           <li><a href="#">Advertise</a></li> -->
+                        <li><a href="http://www.risingelection.com/about-us">About
+                           Us</a>
+                        </li>
+                        <li><a href="http://www.risingelection.com/copyright">Copyright</a></li>
+                        <li><a href="http://www.risingelection.com/advertise">Advertise</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-2 col-xs-6">
+                     <ul class="list-unstyled">
+                        <li><a href="http://www.risingelection.com/home">Home</a></li>
+                        <li><a href="http://www.risingelection.com/news-channels">News
+                           Channels</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col-md-2 col-xs-6">
+                     <ul class="list-unstyled">
+                        <li><a
+                           href="http://www.risingelection.com/archive-did-you-know">Archive
+                           Did you Know</a>
+                        </li>
+                        <li><a
+                           href="http://www.risingelection.com/archive-view-polls">Archive
+                           View Polls</a>
+                        </li>
+                        <li><a href="http://www.risingelection.com/web-sitemap">Sitemap</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-2 col-xs-6">
+                     <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/risingelection/"
+                           target="_blank">Facebook</a></li>
+                        <li><a href="https://twitter.com/risingelection"
+                           target="_blank">Twitter</a></li>
+                        <li><a
+                           href="https://www.linkedin.com/company/rising-elections"
+                           target="_blank">Linked In</a></li>
+                        <li><a href="https://plus.google.com/109869287593393897837"
+                           target="_blank">Google Plus</a></li>
+                        <li><a href="https://www.instagram.com/risingelection/"
+                           target="_blank">Instagram</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-2 col-xs-6">
+                     <ul class="list-unstyled">
+                        <li><a href="http://www.risingelection.com/have-a-question">Have
+                           a question?</a>
+                        </li>
+                        <li><a href="http://www.risingelection.com/data-correction">Data
+                           Correction</a>
+                        </li>
+                        <li><a href="http://www.risingelection.com/faq">FAQ</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="bottom-footer">
+            <div class="footer_bg">
+               <div class="footer font_20">
+                  <div class="footer_header col-md-2">BREAKING NEWS</div>
+                  <div class="news col-md-8">
+                     <div class="caroufredsel_wrapper breakingnews1">
+                        <dl id="ticker-1" class="breakingnews2">
+                           <dd>
+                              <a
+                                 href="https://www.ndtv.com/indians-abroad/nri-man-altaf-nazerali-gets-1-2-million-in-compensation-for-fake-news-article-in-canada-1905658"
+                                 target="_blank" title=""> NRI Man Gets $1.2 Million In
+                              Compensation For Fake News Article In Canada </a>
+                           </dd>
+                           <dd>
+                              <a
+                                 href="https://www.ndtv.com/world-news/moscow-may-ban-more-u-s-politicians-from-entering-russia-as-part-of-a-response-to-a-new-round-of-u-s-1905646"
+                                 target="_blank" title=""> Russia May Ban More US
+                              Politicians Over Sanction: Deputy Foreign Minister </a>
+                           </dd>
+                           <dd>
+                              <a
+                                 href="https://www.ndtv.com/world-news/thomas-cook-evacuates-300-from-egyptian-hotel-after-couples-death-1905635"
+                                 target="_blank" title=""> 300 Evacuated From Hotel After
+                              Couple Die Within Hours Of Each Other </a>
+                           </dd>
+                           <dd>
+                              <a
+                                 href="https://www.ndtv.com/kerala-news/2-kerala-government-officials-arrested-for-embezzling-relief-materials-1905626"
+                                 target="_blank" title=""> 2 Kerala Government Officials
+                              Arrested For Embezzling Relief Materials </a>
+                           </dd>
+                           <dd>
+                              <a
+                                 href="https://www.ndtv.com/india-news/20-men-acquitted-earlier-declared-guilty-in-2010-mirchpur-dalit-killings-1905621"
+                                 target="_blank" title=""> 20 Men Acquitted Earlier
+                              Declared Guilty In 2010 Haryana Dalit Killings </a>
+                           </dd>
+                     </div>
+                     <dd></dd>
+                     </dl>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
       </footer>
       <!-- Modal -->
       <!--Modal: Login / Register Form-->
