@@ -31,7 +31,7 @@
                </li>
                <ul class="nav navbar-nav navbar-right dropdown">
                   <li>
-                     <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalLRForm" style="line-height:29px">Sign In</a>
+                     <a href="" class="login btn btn-primary" data-toggle="modal" data-target="#modalLRForm" style="line-height:29px">Sign In</a>
                   </li>
                </ul>
                <ul class="nav navbar-nav navbar-right dropdown">
