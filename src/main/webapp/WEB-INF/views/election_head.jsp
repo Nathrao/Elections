@@ -4,7 +4,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-      <title>Welcome to Rising Election </title>
+      <title>{election.page.title}</title>
       <meta name="description" content="" />
       <meta name="keywords" content="" />
       <link rel="shortcut icon" href="./resources/images/favicon.ico">
