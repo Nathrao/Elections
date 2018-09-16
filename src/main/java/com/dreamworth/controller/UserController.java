@@ -9,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,6 +59,23 @@ public class UserController {
 		logger.trace("UserController.addPerson() executed");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "/refdata/{categoryName}", method = RequestMethod.POST)
+	public String getStateList(@PathVariable String categoryName) {
+		if (categoryName != null) {
+			logger.debug("requested resource :" + categoryName);
+			if (viewMap.containsKey(categoryName)) {
+				categoryName = viewMap.getProperty(categoryName);
+				logger.debug(categoryName + ".jsp request mapped ");
+			} else {
+				logger.debug("requested resource not availabe :" + categoryName);
+				categoryName = viewMap.getProperty("FatalErrorPage");
+			}
+		}
+		logger.trace("UserController.getStateList() executed");
+		return categoryName;
+	}
+	
 
 	public UserService getService() {
 		return service;
