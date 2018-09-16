@@ -38,11 +38,15 @@
         
            <div class="col-md-4">
              <select class="state-select" id="select_city4" name="select_city" style="display: none;">
-                <option value="" />Select your City... 
+                <option value="" >Select your City...</option>
+                <option value="">Kerala</option>
+               
+                 
              </select>
            </div>
            <div class="col-md-4">
              <select class="state-select" id="select_city6" name="select_zone" style="display: none;">
+               <option value="">Kerala</option>
                <option value="" />Select your Area... 
              </select>
            </div>

@@ -323,7 +323,9 @@
       </script>
       <script type="text/javascript">
          $('#select_city2').on('change',function (){
-         	  // alert (this.value);
+        	 $("#select_city4").show(); 
+        	 // alert (this.value);
+         	  
          	  // $('#select_city4').html('<option val="1">One</option>');
          	  $.ajax({
          	            type: "POST",

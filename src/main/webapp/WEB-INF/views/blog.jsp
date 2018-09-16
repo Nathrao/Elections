@@ -1,28 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-      <title>Blog</title>
-      <meta name="description" content="" />
-      <meta name="keywords" content="" />
-      <link rel="shortcut icon" href="./resources/images/favicon.ico">
-      <!-- Bootstrap -->
-      <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-      <link href="./resources/css/hover-min.css" rel="stylesheet">
-      <!-- <link href="css/mystyle.css" rel="stylesheet"> -->
-      <link href="./resources/css/lightbox.css" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" media="all" href="./resources/css/map.css">
-      <link rel="stylesheet" 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="./resources/css/style.css" rel="stylesheet">
-      <link href="./resources/css/responsive.css" rel="stylesheet">
-      <link href="./resources/css/jquery-ui.css" rel="stylesheet">
-      <link href="./resources/css/jquery.fancybox.css" rel="stylesheet">
-   </head>
+ <%@include file="election_head.jsp"%>
    <body>
- <%@include file="election_header.jsp" %>
+	  <%@include file="election_header.jsp"%>
+ 
     <div class="main-blog-banner">
          <div id="cbp-fwslider" class="cbp-fwslider">
             <ul>
@@ -475,7 +456,9 @@
       <!--
          </body></html> -->
       <div class="clearfix"></div>
-	  
+
+  <%@include file="election_footer.jsp"%>
+	  <%@include file="commons_script.jsp"%>	  
 	  
    </body>
 </html>
